@@ -108,31 +108,28 @@ class BookService {
     }
   }
 
-  // Update a book
-  Future<void> updateBook(String bookId, Map<String, dynamic> data) async {
-    await _firestore.collection('books').doc(bookId).update(data);
-  }
-
   // Delete a book
   Future<void> deleteBook(String bookId) async {
-    final batch = _firestore.batch();
-    
-    // Delete the book document
-    final bookRef = _firestore.collection('books').doc(bookId);
-    batch.delete(bookRef);
-    
-    // Get all users who have this book in their favorites
-    final usersWithFavorite = await _firestore
-        .collectionGroup('favorites')
-        .where('bookId', isEqualTo: bookId)
-        .get();
-    
-    // Remove the book from all users' favorites
-    for (var doc in usersWithFavorite.docs) {
-      batch.delete(doc.reference);
+    print('BookService: Attempting to delete book with ID: $bookId');
+    try {
+      await _firestore.collection('books').doc(bookId).delete();
+      print('BookService: Successfully deleted book with ID: $bookId');
+    } catch (e) {
+      print('BookService: Error deleting book: $e');
+      throw Exception('Failed to delete book: ${e.toString()}');
     }
-    
-    await batch.commit();
+  }
+
+  // Update a book
+  Future<void> updateBook(Book book) async {
+    print('BookService: Updating book: ${book.title}');
+    try {
+      await _firestore.collection('books').doc(book.id).update(book.toJson());
+      print('BookService: Successfully updated book with ID: ${book.id}');
+    } catch (e) {
+      print('BookService: Error updating book: $e');
+      rethrow;
+    }
   }
 
   // Add book to favorites

@@ -378,10 +378,40 @@ class AppProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      await _bookService.updateBook(bookId, data);
+      // Find the existing book
+      final existingBook = _books.firstWhere((book) => book.id == bookId);
+      
+      // Create a new Book object with updated data
+      final updatedBook = Book(
+        id: existingBook.id,
+        title: data['title'] ?? existingBook.title,
+        author: data['author'] ?? existingBook.author,
+        description: data['description'] ?? existingBook.description,
+        imageUrl: data['imageUrl'] ?? existingBook.imageUrl,
+        ownerId: existingBook.ownerId,
+        ownerName: existingBook.ownerName,
+        condition: data['condition'] ?? existingBook.condition,
+        genres: List<String>.from(data['genres'] ?? existingBook.genres),
+        dateAdded: existingBook.dateAdded,
+        isAvailable: data['isAvailable'] ?? existingBook.isAvailable,
+        latitude: data['latitude'] ?? existingBook.latitude,
+        longitude: data['longitude'] ?? existingBook.longitude,
+        language: data['language'] ?? existingBook.language,
+      );
+
+      await _bookService.updateBook(updatedBook);
+      
+      // Update local state
+      final index = _books.indexWhere((book) => book.id == bookId);
+      if (index != -1) {
+        _books[index] = updatedBook;
+        notifyListeners();
+      }
     } catch (e) {
       print('Error updating book: $e');
       _error = e.toString();
+      notifyListeners();
+      rethrow;
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -401,9 +431,16 @@ class AppProvider extends ChangeNotifier {
 
     try {
       await _bookService.deleteBook(bookId);
+      // Remove the book from local state
+      _books.removeWhere((book) => book.id == bookId);
+      // Remove from favorites if it was favorited
+      _favoriteBooks.removeWhere((book) => book.id == bookId);
+      notifyListeners();
     } catch (e) {
       print('Error deleting book: $e');
       _error = e.toString();
+      notifyListeners();
+      rethrow;
     } finally {
       _isLoading = false;
       notifyListeners();
