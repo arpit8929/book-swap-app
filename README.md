@@ -10,6 +10,7 @@ Book Swap is a Flutter-based mobile application that facilitates book sharing wi
 - Secure user sessions
 - Profile management
 - Firebase authentication integration
+  
 ![WhatsApp Image 2025-04-24 at 08 56 09_75538eff](https://github.com/user-attachments/assets/f9c3ccf7-4d29-4e23-95d7-7c15701168ab)
 ![WhatsApp Image 2025-04-24 at 08 56 10_2f49abd8](https://github.com/user-attachments/assets/62fe8c89-e2c0-4f4f-a129-4b3d08dcccb2)
 ![WhatsApp Image 2025-04-24 at 08 56 10_715fcb57](https://github.com/user-attachments/assets/4b19a5d1-3dfa-4942-b39b-5e611ad46a98)
@@ -24,6 +25,7 @@ Book Swap is a Flutter-based mobile application that facilitates book sharing wi
   - Genre categorization
 - Search and filter functionality
 - Book status tracking
+  
 ![WhatsApp Image 2025-04-24 at 09 07 54_2c9d5914](https://github.com/user-attachments/assets/3ff2218c-3429-4501-b76c-fc30ad1aa54c)
 ![WhatsApp Image 2025-04-24 at 09 07 55_872682ee](https://github.com/user-attachments/assets/3d2d057a-7009-42f3-bb6b-3cba04c8d7c8)
 ![WhatsApp Image 2025-04-24 at 09 07 54_2c0f28b7](https://github.com/user-attachments/assets/03b6b983-af06-4f40-8919-94eddb438144)
@@ -34,6 +36,7 @@ Book Swap is a Flutter-based mobile application that facilitates book sharing wi
 - Real-time messaging between users
 - Location-based book discovery
 - Favorite books system
+  
 ![WhatsApp Image 2025-04-24 at 09 10 31_7b71c65b](https://github.com/user-attachments/assets/f65c480a-d399-430d-8765-ea3e931ae91b)
 ![WhatsApp Image 2025-04-24 at 09 10 30_81dd1a42](https://github.com/user-attachments/assets/e9440813-5d1e-4ac2-99d3-efa79ec4858f)
 ![WhatsApp Image 2025-04-24 at 09 10 31_c68a02b2](https://github.com/user-attachments/assets/ebcc24b0-5b63-4991-b5e1-d523b4a10b84)
@@ -45,6 +48,7 @@ Book Swap is a Flutter-based mobile application that facilitates book sharing wi
 - Dark/Light theme support
 - Responsive design
 - Location services integration
+  
 ![WhatsApp Image 2025-04-24 at 09 12 35_2826ce1b](https://github.com/user-attachments/assets/72ac9fd2-888d-419d-a58e-68fe58eb5db4)
 ![WhatsApp Image 2025-04-24 at 09 12 35_5bfd2e67](https://github.com/user-attachments/assets/d7a261a3-18e0-4572-b956-1fffda9bb09f)
 ![WhatsApp Image 2025-04-24 at 09 12 34_4c508a78](https://github.com/user-attachments/assets/3d9d5ad4-ac18-4898-a96a-7aa410c822fa)
