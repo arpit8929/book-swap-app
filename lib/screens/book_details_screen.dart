@@ -195,8 +195,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                       const SizedBox(height: 16),
                       _buildDetailRow('Owner', widget.book.ownerName),
                       _buildDetailRow('Condition', widget.book.condition),
-                      if (widget.book.language != null)
-                        _buildDetailRow('Language', widget.book.language!),
+                      
                       const SizedBox(height: 16),
                       const Text(
                         'Genres',
